@@ -5,7 +5,12 @@ import "./App.css";
 import Produto from "./components/Produto";
 import { v4 as uuidv4 } from "uuid";
 
-const Main = styled.main``;
+const Main = styled.main`
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 16px;
+  gap: 8px;
+`;
 
 const ProdutosContainer = styled.section`
   display: flex;
@@ -23,6 +28,20 @@ const Produtos = styled.section`
   grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
   grid-gap: 16px;
   padding: 16px;
+`;
+
+const Carrinho = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+`;
+
+const ProdutoContainerCarrinho = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const DetalhesProdutoCarrinho = styled.div`
+
 `;
 
 class App extends Component {
@@ -98,6 +117,7 @@ class App extends Component {
 
     return (
       < Main >
+        <div></div>
         < ProdutosContainer >
           < ProdutosInformacoes >
             < p >{ `Quantidade De Produtos: ${ produtos.length }` }</ p >
@@ -127,6 +147,23 @@ class App extends Component {
           </  Produtos >
         </ ProdutosContainer >
         < pre >{ JSON.stringify( this.state.carrinho, null, 2 ) }</ pre >
+      
+        <Carrinho>
+          <h3>Carrinho:</h3>
+          <ProdutoContainerCarrinho>
+            <DetalhesProdutoCarrinho>
+              <p>1x</p>
+              <p>Camiseta Espaço</p>
+              <button>Remover</button>
+            </DetalhesProdutoCarrinho>
+          </ProdutoContainerCarrinho>
+          <p>
+            Valor total: R$0,00
+            {/* não precisa estar no state */}
+          </p>
+  
+       </Carrinho>
+      
       </ Main >
     );
 
@@ -134,40 +171,4 @@ class App extends Component {
 
 }
 
-  state = {
-
-
-  }
-
-  render () {
-    
-    return (
-      <MainContainer>
-        <div> 
-
-        </div>
-        <div>
-
-
-        </div>
-       <Carrinho>
-          <h3>Carrinho:</h3>
-          <ProdutoContainer>
-            <DetalhesProduto>
-              <p>1x</p>
-              <p>Camiseta Espaço</p>
-              <button>Remover</button>
-            </DetalhesProduto>
-          </ProdutoContainer>
-          <p>
-            Valor total: R$0,00
-            {/* não precisa estar no state */}
-          </p>
-  
-       </Carrinho>
-      </MainContainer>
-    );
-  }
-}
-  
 export default App;
