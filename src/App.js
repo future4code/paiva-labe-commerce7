@@ -127,30 +127,8 @@ class App extends Component {
           </  Produtos >
         </ ProdutosContainer >
         < pre >{ JSON.stringify( this.state.carrinho, null, 2 ) }</ pre >
-      </ Main >
-    );
-
-  }
-
-}
-
-  state = {
-
-
-  }
-
-  render () {
-    
-    return (
-      <MainContainer>
-        <div> 
-
-        </div>
-        <div>
-
-
-        </div>
-       <Carrinho>
+      
+        <Carrinho>
           <h3>Carrinho:</h3>
           <ProdutoContainer>
             <DetalhesProduto>
@@ -165,9 +143,12 @@ class App extends Component {
           </p>
   
        </Carrinho>
-      </MainContainer>
+      
+      </ Main >
     );
+
   }
+
 }
-  
+
 export default App;
