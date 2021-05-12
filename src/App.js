@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import styled from "styled-components";
 import "./App.css";
@@ -133,4 +134,40 @@ class App extends Component {
 
 }
 
+  state = {
+
+
+  }
+
+  render () {
+    
+    return (
+      <MainContainer>
+        <div> 
+
+        </div>
+        <div>
+
+
+        </div>
+       <Carrinho>
+          <h3>Carrinho:</h3>
+          <ProdutoContainer>
+            <DetalhesProduto>
+              <p>1x</p>
+              <p>Camiseta Espaço</p>
+              <button>Remover</button>
+            </DetalhesProduto>
+          </ProdutoContainer>
+          <p>
+            Valor total: R$0,00
+            {/* não precisa estar no state */}
+          </p>
+  
+       </Carrinho>
+      </MainContainer>
+    );
+  }
+}
+  
 export default App;
