@@ -5,7 +5,12 @@ import "./App.css";
 import Produto from "./components/Produto";
 import { v4 as uuidv4 } from "uuid";
 
-const Main = styled.main``;
+const Main = styled.main`
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 16px;
+  gap: 8px;
+`;
 
 const ProdutosContainer = styled.section`
   display: flex;
@@ -23,6 +28,20 @@ const Produtos = styled.section`
   grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
   grid-gap: 16px;
   padding: 16px;
+`;
+
+const Carrinho = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+`;
+
+const ProdutoContainerCarrinho = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const DetalhesProdutoCarrinho = styled.div`
+
 `;
 
 class App extends Component {
@@ -98,6 +117,7 @@ class App extends Component {
 
     return (
       < Main >
+        <div></div>
         < ProdutosContainer >
           < ProdutosInformacoes >
             < p >{ `Quantidade De Produtos: ${ produtos.length }` }</ p >
@@ -130,13 +150,13 @@ class App extends Component {
       
         <Carrinho>
           <h3>Carrinho:</h3>
-          <ProdutoContainer>
-            <DetalhesProduto>
+          <ProdutoContainerCarrinho>
+            <DetalhesProdutoCarrinho>
               <p>1x</p>
               <p>Camiseta Espaço</p>
               <button>Remover</button>
-            </DetalhesProduto>
-          </ProdutoContainer>
+            </DetalhesProdutoCarrinho>
+          </ProdutoContainerCarrinho>
           <p>
             Valor total: R$0,00
             {/* não precisa estar no state */}
