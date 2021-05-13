@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import "./App.css";
 import Produto from "./components/Produto";
-import { v4 as uuidv4 } from "uuid";
 import ProdutoContainerCarrinho from "./components/ProdutoContainerCarrinho";
 
 const Main = styled.main`
@@ -21,6 +20,9 @@ const ProdutosInformacoes = styled.article`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  @media screen and (max-width: 740px) {
+    flex-direction: column;
+  }
 `;
 
 const Produtos = styled.section`
@@ -41,40 +43,85 @@ class App extends Component {
   state = {
     produtos: [
       {
-        id: uuidv4(),
-        nome: "Foguete da Missão Apollo 11",
-        valor: 100.0,
-        imagem: "https://picsum.photos/400",
+        id:     1,
+        nome:   "Balançando No Espaço",
+        valor:  60.0,
+        imagem: "./img/balanço.jpeg"
       },
       {
-        id: uuidv4(),
-        nome: "Foguete da Missão Apollo 12",
-        valor: 1000.0,
-        imagem: "https://picsum.photos/401",
+        id:     2,
+        nome:   "Balão De Lua",
+        valor:  75.0,
+        imagem: "./img/balão.jpeg"
       },
       {
-        id: uuidv4(),
-        nome: "Foguete da Missão Apollo 13",
-        valor: 10000.0,
-        imagem: "https://picsum.photos/402",
+        id:     3,
+        nome:   "Fim Do Sistema Solar",
+        valor:  70.0,
+        imagem: "./img/destruição.jpg"
       },
       {
-        id: uuidv4(),
-        nome: "Foguete da Missão Apollo 14",
-        valor: 10.0,
-        imagem: "https://picsum.photos/403",
+        id:     4,
+        nome:   "Dinossauro Explorador",
+        valor:  65.0,
+        imagem: "./img/dinossauro.jpeg"
       },
+      {
+        id:     5,
+        nome:   "Espaço Na Garrafinha",
+        valor:  90.0,
+        imagem: "./img/garrafa.jpeg"
+      },
+      {
+        id:     6,
+        nome:   "Gato Explorador",
+        valor:  85.0,
+        imagem: "./img/gatoexplorado.jpg"
+      },
+      {
+        id:     7,
+        nome:   "Astrounata Gigante",
+        valor:  80.0,
+        imagem: "./img/gigante.jpg"
+      },
+      {
+        id:     8,
+        nome:   "Astrounata Criança",
+        valor:  95.0,
+        imagem: "./img/infantil.jpg"
+      },
+      {
+        id:     9,
+        nome:   "Objetos no Espaço",
+        valor:  75.0,
+        imagem: "./img/objetos.jpeg"
+      },
+      {
+        id:     10,
+        nome:   "Space Invaders",
+        valor:  95.0,
+        imagem: "./img/spaceInvasior.jpeg"
+      }
     ],
-    carrinho: [],
+    carrinho:  [],
     crescente: true,
-    total: 0
+    total:     0
   };
+
+  componentDidMount() {
+    const carrinhoLocal = JSON.parse(localStorage.getItem("carrinho"));
+    this.setState({ carrinho: carrinhoLocal || [] });
+  }
+
+  componentDidUpdate() {
+    const carrinhoString = JSON.stringify(this.state.carrinho);
+    localStorage.setItem("carrinho", carrinhoString);
+  }
 
   adicionarNoCarrinho = (produto) => {
     const { carrinho } = this.state;
-    const produtoIndex = carrinho.findIndex(
-      (produtoCarrinho) => produtoCarrinho.id === produto.id
-    );
+    const produtoIndex = carrinho
+      .findIndex((produtoCarrinho) => produtoCarrinho.id === produto.id);
 
     if (produtoIndex >= 0) {
       carrinho[produtoIndex].quantidade++;
@@ -85,7 +132,8 @@ class App extends Component {
     let total = 0
     carrinho.forEach(produto => total += produto.valor * produto.quantidade)
 
-    this.setState({ total })
+
+    this.setState({ total, carrinho })
   };
 
   selecionarOrdenação = (event) => {
@@ -107,19 +155,21 @@ class App extends Component {
 
   render() {
     const produtos = this.state.produtos.sort((produtoA, produtoB) => {
-      if (this.state.crescente) return produtoA.valor - produtoB.valor;
+      if (this.state.crescente)
+        return produtoA.valor - produtoB.valor;
 
       return produtoB.valor - produtoA.valor;
     });
 
     return (
       <Main>
-        <div></div>
+        <div />
         <ProdutosContainer>
           <ProdutosInformacoes>
             <p>{`Quantidade De Produtos: ${produtos.length}`}</p>
             <label htmlFor="ordenação">
-              Ordenação:{" "}
+              Ordenação:
+              {" "}
               <select
                 name="ordenação"
                 id="ordenação"
