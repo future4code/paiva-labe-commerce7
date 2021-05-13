@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import styled from "styled-components";
 import "./App.css";
@@ -25,7 +24,7 @@ const ProdutosInformacoes = styled.article`
 
 const Produtos = styled.section`
   display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 16px;
   padding: 16px;
 `;
@@ -40,135 +39,121 @@ const ProdutoContainerCarrinho = styled.div`
   flex-direction: column;
 `;
 
-const DetalhesProdutoCarrinho = styled.div`
-
-`;
+const DetalhesProdutoCarrinho = styled.div``;
 
 class App extends Component {
-
   state = {
     produtos: [
       {
-        id:     uuidv4(),
-        nome:   "Foguete da Missão Apollo 11",
-        valor:  100.0,
-        imagem: "https://picsum.photos/400"
+        id: uuidv4(),
+        nome: "Foguete da Missão Apollo 11",
+        valor: 100.0,
+        imagem: "https://picsum.photos/400",
       },
       {
-        id:     uuidv4(),
-        nome:   "Foguete da Missão Apollo 12",
-        valor:  1000.0,
-        imagem: "https://picsum.photos/401"
+        id: uuidv4(),
+        nome: "Foguete da Missão Apollo 12",
+        valor: 1000.0,
+        imagem: "https://picsum.photos/401",
       },
       {
-        id:     uuidv4(),
-        nome:   "Foguete da Missão Apollo 13",
-        valor:  10000.0,
-        imagem: "https://picsum.photos/402"
+        id: uuidv4(),
+        nome: "Foguete da Missão Apollo 13",
+        valor: 10000.0,
+        imagem: "https://picsum.photos/402",
       },
       {
-        id:     uuidv4(),
-        nome:   "Foguete da Missão Apollo 14",
-        valor:  10.0,
-        imagem: "https://picsum.photos/403"
-      }
+        id: uuidv4(),
+        nome: "Foguete da Missão Apollo 14",
+        valor: 10.0,
+        imagem: "https://picsum.photos/403",
+      },
     ],
-    carrinho:  [],
-    crescente: true
-  }
+    carrinho: [],
+    crescente: true,
+  };
 
-  adicionarNoCarrinho = ( produto ) => {
-
+  adicionarNoCarrinho = (produto) => {
     const { carrinho } = this.state;
-    const produtoIndex = carrinho
-      .findIndex( ( produtoCarrinho ) => produtoCarrinho.id === produto.id );
+    const produtoIndex = carrinho.findIndex(
+      (produtoCarrinho) => produtoCarrinho.id === produto.id
+    );
 
-    if( produtoIndex >= 0 ) {
-
-      carrinho[ produtoIndex ].quantidade++;
-
+    console.log(produtoIndex);
+    if (produtoIndex >= 0) {
+      carrinho[produtoIndex].quantidade++;
     } else {
-
       produto.quantidade = 1;
-      carrinho.push( produto );
-
+      carrinho.push(produto);
     }
 
-    this.setState( { carrinho } );
+    this.setState({ carrinho });
 
-  }
+    console.log(carrinho);
+  };
 
-  selecionarOrdenação = ( event ) => {
-
-    this.setState( { crescente: event.target.value === "CRESCENTE" } );
-
-  }
+  selecionarOrdenação = (event) => {
+    this.setState({ crescente: event.target.value === "CRESCENTE" });
+  };
 
   render() {
-
-    const produtos = this.state.produtos.sort( ( produtoA, produtoB ) => {
-
-      if( this.state.crescente )
-        return produtoA.valor - produtoB.valor;
+    const produtos = this.state.produtos.sort((produtoA, produtoB) => {
+      if (this.state.crescente) return produtoA.valor - produtoB.valor;
 
       return produtoB.valor - produtoA.valor;
-
-    } );
+    });
 
     return (
-      < Main >
+      <Main>
         <div></div>
-        < ProdutosContainer >
-          < ProdutosInformacoes >
-            < p >{ `Quantidade De Produtos: ${ produtos.length }` }</ p >
-            < label htmlFor = "ordenação" >
-              Ordenação:
-              { " " }
-              < select
-                name = "ordenação"
-                id = "ordenação"
-                onChange = { this.selecionarOrdenação }
+        <ProdutosContainer>
+          <ProdutosInformacoes>
+            <p>{`Quantidade De Produtos: ${produtos.length}`}</p>
+            <label htmlFor="ordenação">
+              Ordenação:{" "}
+              <select
+                name="ordenação"
+                id="ordenação"
+                onChange={this.selecionarOrdenação}
               >
-                < option value = "CRESCENTE" >Crescente</ option >
-                < option value = "DECRESCENTE" >Decrescente</ option >
-              </ select >
-            </ label >
-          </ ProdutosInformacoes >
-          < Produtos >
-            {
-              produtos.map( ( produto ) => (
-                < Produto
-                  key = { produto.id }
-                  produto = { produto }
-                  adicionarNoCarrinho = { this.adicionarNoCarrinho }
-                />
-              ) )
-            }
-          </  Produtos >
-        </ ProdutosContainer >
-        < pre >{ JSON.stringify( this.state.carrinho, null, 2 ) }</ pre >
-      
+                <option value="CRESCENTE">Crescente</option>
+                <option value="DECRESCENTE">Decrescente</option>
+              </select>
+            </label>
+          </ProdutosInformacoes>
+          <Produtos>
+            {produtos.map((produto) => (
+              <Produto
+                key={produto.id}
+                produto={produto}
+                adicionarNoCarrinho={this.adicionarNoCarrinho}
+              />
+            ))}
+          </Produtos>
+        </ProdutosContainer>
+
         <Carrinho>
           <h3>Carrinho:</h3>
           <ProdutoContainerCarrinho>
-            <DetalhesProdutoCarrinho>
-              <p>1x</p>
-              <p>Camiseta Espaço</p>
-              <button>Remover</button>
-            </DetalhesProdutoCarrinho>
+             {this.state.carrinho?.map((produto) => {
+                return (
+                  <div>
+                    <p>{produto.quantidade}</p>
+                    <p>{produto.nome}</p>
+                    <p>{produto.valor}</p>
+                    <button>Remover</button>
+                  </div>
+                );
+              })}
           </ProdutoContainerCarrinho>
           <p>
             Valor total: R$0,00
             {/* não precisa estar no state */}
           </p>
-  
-       </Carrinho>
-      
-      </ Main >
+        </Carrinho>
+      </Main>
     );
-
   }
-
 }
 
 export default App;
