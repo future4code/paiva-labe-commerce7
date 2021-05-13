@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import "./App.css";
 import Produto from "./components/Produto";
+import ProdutoContainerCarrinho from "./components/ProdutoContainerCarrinho";
 
 const Main = styled.main`
   display: grid;
@@ -34,11 +35,6 @@ const Produtos = styled.section`
 const Carrinho = styled.div`
   border: 1px solid black;
   padding: 8px;
-`;
-
-const ProdutoContainerCarrinho = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 const DetalhesProdutoCarrinho = styled.div``;
@@ -108,7 +104,8 @@ class App extends Component {
       }
     ],
     carrinho:  [],
-    crescente: true
+    crescente: true,
+    total:     0
   };
 
   componentDidMount() {
@@ -132,12 +129,28 @@ class App extends Component {
       produto.quantidade = 1;
       carrinho.push(produto);
     }
+    let total = 0
+    carrinho.forEach(produto => total += produto.valor * produto.quantidade)
 
-    this.setState({ carrinho });
+
+    this.setState({ total, carrinho })
   };
 
   selecionarOrdenação = (event) => {
     this.setState({ crescente: event.target.value === "CRESCENTE" });
+  };
+
+  onClickDeletar = (idParaDeletar, index) => {
+    const novaLista = [...this.state.carrinho];
+    const listaFiltrada = novaLista.filter((produto) => {
+      return produto.id !== idParaDeletar;
+    });
+
+    let total = 0
+    listaFiltrada.forEach(produto => total += produto.valor * produto.quantidade)
+
+    this.setState({ total })
+    this.setState({ carrinho: listaFiltrada });
   };
 
   render() {
@@ -180,20 +193,13 @@ class App extends Component {
 
         <Carrinho>
           <h3>Carrinho:</h3>
-          <ProdutoContainerCarrinho>
-            {this.state.carrinho.map((produto) => (
-              <div key={produto.id}>
-                <p>{produto.quantidade}</p>
-                <p>{produto.nome}</p>
-                <p>{produto.valor}</p>
-                <button>Remover</button>
-              </div>
-            ))}
-          </ProdutoContainerCarrinho>
-          <p>
-            Valor total: R$0,00
-            {/*Não precisa estar no state */}
-          </p>
+          <ProdutoContainerCarrinho
+            carrinho={this.state.carrinho}
+            deletarProduto={this.onClickDeletar}
+          />
+         <p>
+            Valor total: R${this.state.total} 
+        </p>
         </Carrinho>
       </Main>
     );
