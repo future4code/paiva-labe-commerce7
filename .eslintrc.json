@@ -74,7 +74,7 @@
     "comma-dangle": ["warn", "never"],
     "comma-spacing": ["warn", { "before": false, "after": true }],
     "comma-style": ["warn", "last"],
-    "computed-property-spacing": ["error", "always"],
+    "computed-property-spacing": "error",
     "eol-last": ["warn", "always"],
     "func-call-spacing": ["error", "never"],
     "func-names": ["error", "always"],
@@ -104,12 +104,7 @@
       "mode": "strict" ,
       "align": "value"
     }],
-    "keyword-spacing": ["warn", { "overrides": { 
-      "if": { "after": false }, 
-      "for": { "after": false }, 
-      "while": { "after": false }, 
-      "catch": { "after": false } 
-    }}],
+    "keyword-spacing": "warn",
     "linebreak-style": ["warn", "unix"],
     "lines-around-comment": ["warn", { 
       "beforeBlockComment": true,
@@ -155,7 +150,7 @@
     "one-var-declaration-per-line": ["warn", "initializations"],
     "operator-assignment": ["warn", "always"],
     "operator-linebreak": ["warn", "after"],
-    "padded-blocks": ["warn", "always", { "allowSingleLineBlocks": true } ],
+    "padded-blocks": ["warn", "never", { "allowSingleLineBlocks": true } ],
     "prefer-exponentiation-operator": "warn",
     "prefer-object-spread": "warn",
     "quote-props": ["warn", "as-needed"],
@@ -165,7 +160,7 @@
     "semi-style": ["warn", "last"],
     "space-before-blocks": "warn",
     "space-before-function-paren": ["warn", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
-    "space-in-parens": ["warn", "always"],
+    "space-in-parens": ["warn", "never"],
     "space-infix-ops": "warn",
     "space-unary-ops": [ "warn", {"words": true, "nonwords": false}],
     "spaced-comment": ["warn", "never"],
@@ -196,7 +191,7 @@
     "require-yield": "error",
     "rest-spread-spacing": ["warn", "never"],
     "symbol-description": "error",
-    "template-curly-spacing": ["warn", "always"],
+    "template-curly-spacing": "warn",
     "yield-star-spacing": ["warn", "before"],
 
     "react/no-array-index-key": "error",
@@ -210,12 +205,9 @@
     "react/jsx-closing-bracket-location": "warn",
     "react/jsx-closing-tag-location": "warn",
     "react/jsx-curly-brace-presence": "warn",
-    "react/jsx-curly-newline": ["warn",{ 
-      "multiline": "require", 
-      "singleline": "forbid" 
-    }],
-    "react/jsx-curly-spacing": ["warn", { "when": "always", "children": true}],
-    "react/jsx-equals-spacing": ["warn", "always"],
+    "react/jsx-curly-newline": "warn",
+    "react/jsx-curly-spacing": "warn",
+    "react/jsx-equals-spacing": ["warn", "never"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx", ".jsx", ".js"] }],
     "react/jsx-first-prop-new-line": ["warn", "multiline"],
     "react/jsx-fragments": ["warn", "syntax"],
@@ -237,12 +229,7 @@
     "react/jsx-one-expression-per-line": ["warn", { "allow": "single-child" }],
     "react/jsx-pascal-case": "warn",
     "react/jsx-props-no-multi-spaces": "warn",
-    "react/jsx-tag-spacing": ["warn", {
-      "closingSlash": "never",
-      "beforeSelfClosing": "always",
-      "afterOpening": "always",
-      "beforeClosing": "always"
-    }],
+    "react/jsx-tag-spacing": "warn",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/prop-types": "off"
