@@ -31,21 +31,19 @@ const Adicionar = styled.button`
   }
 `;
 
-function Produto( props ) {
-
+function Produto(props) {
   const { imagem, nome, valor } = props.produto;
 
   return (
-    < ProdutoArticle >
-      < ImagemProduto src = { imagem } />
-      < Titulo >{ nome }</ Titulo >
-      < Valor >{ valor }</ Valor >
-      < Adicionar onClick = { () => props.adicionarNoCarrinho( props.produto ) } >
+    <ProdutoArticle >
+      <ImagemProduto src={imagem} />
+      <Titulo >{ nome }</Titulo >
+      <Valor >{ valor }</Valor >
+      <Adicionar onClick={() => props.adicionarNoCarrinho(props.produto)} >
         Adicionar No Carrinho
-      </ Adicionar >
-    </ ProdutoArticle >
+      </Adicionar >
+    </ProdutoArticle >
   );
-
 }
 
 export default Produto;
