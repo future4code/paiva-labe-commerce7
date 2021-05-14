@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+
 
 
 const pessoas = [
@@ -12,7 +12,7 @@ const pessoas = [
 
 const numeros = []
 
-class App extends Component {
+class Filtro extends Component {
   state = {
 
   inputValorMinmo: "",
@@ -59,4 +59,4 @@ onChangeInputPesquisar =(event) => {
 
 }
 
-export default App;
+export default Filtro;
