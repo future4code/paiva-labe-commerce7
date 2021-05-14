@@ -152,7 +152,7 @@ class Produtos extends Component {
     return (
       <Main>
         <div />
-        <button onClick={this.props.irParaCarrinho}>Ir Para O Carrinho</button>
+        <button onClick={this.props.irParaCarrinho}>Ir para o carrinho</button>
         <ProdutosContainer>
           <ProdutosInformacoes>
             <p>{`Quantidade De Produtos: ${produtos.length}`}</p>

@@ -16,6 +16,7 @@ class App extends Component {
 
   render() {
     const renderizaPagina = () => {
+         
       if (this.state.pagina === "carrinho")
         return <Carrinho irParaProdutos={this.irParaProdutos} />;
 
