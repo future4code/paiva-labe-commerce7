@@ -47,7 +47,8 @@ Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segun
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Website**  ([React](https://reactjs.org/)  
+#### [React](https://reactjs.org/)  
+
 
 ---
 
