@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-    🛒 Lojas de camisetas espaciais 🚀
+    🛒 Loja de camisetas espaciais 🚀
 </h3>
 
 
