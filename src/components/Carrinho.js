@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import ProdutoContainerCarrinho from "./ProdutoContainerCarrinho";
+import CarrinhoProduto from "./CarrinhoProduto";
 
 const Main = styled.main`
-  border: 1px solid black;
   padding: 8px;
 `;
 
-
-
-
+const Voltar = styled.button` 
+  margin: 1em auto;
+  cursor: pointer;
+  transition: transform 200ms;
+  &:active {
+    transform: translateY(4px);
+  }
+`;
 
 class Carrinho extends Component {
   state = {
@@ -36,41 +40,36 @@ class Carrinho extends Component {
   }
 
   onClickDeletar = (idParaDeletar) => {
-    const novaLista = [...this.state.carrinho];
+    const novaLista = [ ...this.state.carrinho ];
     const listaFiltrada = novaLista.filter((produto) => {
-      console.log(produto);
       if (produto.quantidade > 1 && produto.id === idParaDeletar) {
         produto.quantidade -= 1;
-        return produto
+        return produto;
       } else {
         return produto.id !== idParaDeletar;
       }
     });
-    console.log(listaFiltrada);
 
     let total = 0;
-    listaFiltrada.forEach(
-      (produto) => (total += produto.valor * produto.quantidade)
-    );
+    listaFiltrada.forEach((produto) => total += produto.valor * produto.quantidade);
 
     this.setState({ total });
     this.setState({ carrinho: listaFiltrada });
   };
 
-
   render() {
     return (
       <Main>
-        <button onClick={this.props.irParaProdutos}>Voltar para os produtos</button>
-        <h3>Carrinho:</h3>
-        <ProdutoContainerCarrinho
-          carrinho={this.state.carrinho}
-          deletarProduto={this.onClickDeletar}
-        />
+        <Voltar onClick={this.props.irParaProdutos}>Voltar para os produtos</Voltar>
+        <h2>Carrinho:</h2>
         <p>
           Valor total: R$
           {this.state.total}
         </p>
+        <CarrinhoProduto
+          carrinho={this.state.carrinho}
+          deletarProduto={this.onClickDeletar}
+        />
       </Main>
     );
   }

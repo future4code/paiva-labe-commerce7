@@ -18,7 +18,6 @@ class App extends Component {
     document.title = "Loja Espacial";
 
     const renderizaPagina = () => {
-         
       if (this.state.pagina === "carrinho")
         return <Carrinho irParaProdutos={this.irParaProdutos} />;
 
