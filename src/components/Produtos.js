@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Produto from "./Produto";
 import carrinhoIcon from "../img/carrinho.svg";
+import banner from "../img/banner-astrodev.png";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Header = styled.header`
   width: calc(100% - 32px);
@@ -38,9 +41,24 @@ const IrParaCarrinho = styled.div`
   }
 `;
 
+const Banner = styled.img`
+  width: 100%;
+  grid-column: 1 / span 4;
+  margin:0;
+  @media screen and (max-width: 660px) {
+    grid-column: 1 / span 1;
+  }
+`;
+
 const IconImage = styled.img`
   width: 100%;
+  grid-column: 1 / span 4;
+  margin:0;
+  @media screen and (max-width: 660px) {
+    grid-column: 1 / span 1;
+  }
 `;
+
 
 const SubTitulo = styled.h2`
   grid-column: 1 / span 4;
@@ -212,6 +230,7 @@ class Produtos extends Component {
   }
 
   adicionarNoCarrinho = (produto) => {
+    toast.dark("🚀 Produto adicionado ao carrinho!");
     const { carrinho } = this.state;
     const produtoIndex = carrinho
       .findIndex((produtoCarrinho) => produtoCarrinho.id === produto.id);
@@ -265,7 +284,8 @@ class Produtos extends Component {
     return (
       <Main>
         <Header>
-          <Titulo>Bem Vindo A Sua Loja Espacial</Titulo>
+          
+          <Titulo> <Banner alt="Banner" src={banner} /></Titulo>
           <IrParaCarrinho>
             <IconImage
               alt="Carrinho"
@@ -331,6 +351,17 @@ class Produtos extends Component {
             ))}
           </ProdutosSection>
         </ProdutosContainer>
+        <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />
       </Main>
     );
   }
