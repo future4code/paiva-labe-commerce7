@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProdutoArticle = styled.article`
   border: 1px solid #000000;
@@ -34,14 +36,17 @@ const Adicionar = styled.button`
 function Produto(props) {
   const { imagem, nome, valor } = props.produto;
 
+
+
   return (
     <ProdutoArticle >
       <ImagemProduto src={imagem} />
       <Titulo >{ nome }</Titulo >
       <Valor >{ valor }</Valor >
       <Adicionar onClick={() => props.adicionarNoCarrinho(props.produto)} >
-        Adicionar No Carrinho
+        Adicionar no carrinho
       </Adicionar >
+      
     </ProdutoArticle >
   );
 }
