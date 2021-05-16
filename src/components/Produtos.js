@@ -3,11 +3,55 @@ import styled from "styled-components";
 import FiltroPesquisa from "./Filtros.Pesquisa";
 import FiltroValor from "./FiltrosValor";
 import Produto from "./Produto";
+import carrinhoIcon from "../img/carrinho.svg";
 
+<<<<<<< HEAD
 
 const Main = styled.main`
   display: flexbox;
+=======
+const Header = styled.header`
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 9fr 1fr;
+>>>>>>> master
   padding: 16px;
+  justify-items: center;
+  align-items: center;
+  @media screen and (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Titulo = styled.h1`
+  grid-column: 2 / span 1;
+  @media screen and (max-width: 760px) {
+    grid-column: 1 / span 1;
+  }
+`;
+
+const IrParaCarrinho = styled.div`
+  width: 40%;
+  min-width: 40px;
+  max-width: 60px;
+  cursor: pointer;
+  transition: transform 200ms;
+  &:hover {
+    opacity: 75%;
+  }
+  &:active {
+    transform: translateY(4px);
+  }
+`;
+
+const IconImage = styled.img`
+  width: 100%;
+`;
+
+const Main = styled.main`
+  display: grid;
   gap: 8px;
   justify-content: space-between;
   width: 100vh;
@@ -20,10 +64,13 @@ const ProdutosContainer = styled.section`
 `;
 
 const ProdutosInformacoes = styled.article`
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  @media screen and (max-width: 740px) {
+  @media screen and (max-width: 500px) {
     flex-direction: column;
   }
 `;
@@ -189,6 +236,7 @@ class Produtos extends Component {
 
     return (
       <Main>
+<<<<<<< HEAD
 
         <FiltroProduto>
 
@@ -209,12 +257,25 @@ class Produtos extends Component {
         <FiltroPesquisa lista={pesquisa} nome={""} /> */}
         
         <button onClick={this.props.irParaCarrinho}>Ir Para O Carrinho</button>
+=======
+        <Header>
+          <Titulo>Bem Vindo A Sua Loja Espacial</Titulo>
+          <IrParaCarrinho>
+            <IconImage
+              alt="Carrinho"
+              src={carrinhoIcon}
+              onClick={this.props.irParaCarrinho}
+            />
+          </IrParaCarrinho>
+        </Header>
+        <div />
+>>>>>>> master
 
         <ProdutosContainer>
           <ProdutosInformacoes>
             <p>{`Quantidade De Produtos: ${produtos.length}`}</p>
             <label htmlFor="ordenação">
-              Ordenação:
+              Preço:
               {" "}
               <select
                 name="ordenação"

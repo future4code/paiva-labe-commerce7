@@ -9,10 +9,15 @@ const ContainerCarrinho = styled.div`
 
 const Produto = styled.div`
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     gap: 8px;
     align-items: center; 
+    justify-content: center;
 `;
+
+const Img = styled.img`
+  width: 200px;
+` 
 
 class ProdutoContainerCarrinho extends React.Component {
   render() {
@@ -24,8 +29,8 @@ class ProdutoContainerCarrinho extends React.Component {
               {produto.quantidade}
               x
             </p>
+            <Img src={produto.imagem}/>
             <p>{produto.nome}</p>
-            {/*<p>R$ {produto.valor}</p> */}
             <button onClick={() => this.props.deletarProduto(produto.id)}>
               Remover
             </button>

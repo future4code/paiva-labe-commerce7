@@ -7,6 +7,10 @@ const Main = styled.main`
   padding: 8px;
 `;
 
+
+
+
+
 class Carrinho extends Component {
   state = {
     carrinho: [],
@@ -32,21 +36,32 @@ class Carrinho extends Component {
   }
 
   onClickDeletar = (idParaDeletar) => {
-    const novaLista = [ ...this.state.carrinho ];
-    const listaFiltrada = novaLista
-      .filter((produto) => produto.id !== idParaDeletar);
+    const novaLista = [...this.state.carrinho];
+    const listaFiltrada = novaLista.filter((produto) => {
+      console.log(produto);
+      if (produto.quantidade > 1 && produto.id === idParaDeletar) {
+        produto.quantidade -= 1;
+        return produto
+      } else {
+        return produto.id !== idParaDeletar;
+      }
+    });
+    console.log(listaFiltrada);
 
     let total = 0;
-    listaFiltrada.forEach((produto) => total += produto.valor * produto.quantidade);
+    listaFiltrada.forEach(
+      (produto) => (total += produto.valor * produto.quantidade)
+    );
 
     this.setState({ total });
     this.setState({ carrinho: listaFiltrada });
   };
 
+
   render() {
     return (
       <Main>
-        <button onClick={this.props.irParaProdutos}>Ir Para Os Produtos</button>
+        <button onClick={this.props.irParaProdutos}>Voltar para os produtos</button>
         <h3>Carrinho:</h3>
         <ProdutoContainerCarrinho
           carrinho={this.state.carrinho}
