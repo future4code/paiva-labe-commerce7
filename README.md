@@ -1,5 +1,5 @@
 <h1 align="center">
-     🛒🚀 <a href="#" alt="site do projeto"> E-Commerce ASTRODEV </a> 
+     🛒🚀 <a href="ecommerceastrodev.surge.sh" alt="site do projeto" target="_blank"> E-Commerce ASTRODEV </a> 
 </h1>
 
 <h3 align="center">
@@ -8,10 +8,13 @@
 
 
 
-## 💻 Sobre o projeto
+
+## 💻 Sobre o projeto 
 
 🚀 A loja de camisetas ASTRODEV é parte do projeto semanal do curso de Web Full Stack da Labenu. 
 Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segundo módulo de front end da turma Paiva.
+
+
 
 ---
 
