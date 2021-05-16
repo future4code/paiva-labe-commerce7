@@ -1,5 +1,5 @@
 <h1 align="center">
-     🛒🚀 <a href="ecommerceastrodev.surge.sh" alt="site do projeto" target="_blank"> E-Commerce ASTRODEV </a> 
+     🛒🚀 <a href="#" alt="site do projeto" target="_blank"> E-Commerce ASTRODEV </a> 
 </h1>
 
 <h3 align="center">
@@ -13,7 +13,7 @@
 Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segundo módulo de front end da turma Paiva.
 <br>
 
-<b><red>SITE DO PROJETO:</red></b> ecommerceastrodev.surge.sh
+<b>SITE DO PROJETO:</b> <a href:"ecommerceastrodev.surge.sh" target="_blank">ecommerceastrodev.surge.sh</a>
 
 
 
