@@ -35,7 +35,10 @@ Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segun
 
 ### Mobile
 
-<p align="center">
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+     <a href="https://ibb.co/3f6FbLT"><img src="https://i.ibb.co/ZH4grkf/5458713e-2c2c-4109-b14f-b1c48cdcddcc.jpg" alt="5458713e-2c2c-4109-b14f-b1c48cdcddcc" border="0"></a>
+     <a href="https://ibb.co/PrdcCR9"><img src="https://i.ibb.co/7SqnyHR/c4913d08-c8cb-4d4d-968e-b97971a2d8f6.jpg" alt="c4913d08-c8cb-4d4d-968e-b97971a2d8f6" border="0"></a>
+     
   
 
 
