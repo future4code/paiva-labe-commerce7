@@ -17,10 +17,10 @@ Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segun
 
 ## ⚙️ Funcionalidades
 
-- [x] 
-  - [x] 
-  - [x] 
-  - [x] 
+- [x] Adiconar produtos no carrinho;
+  - [x] Filtrar produtos por valor mínimo, valor máximo e nome do produto;
+  - [x] Ordenar lista de produtos por valor (crescente/decrescente);
+  - [x] Lista de produtos e carrinho em páginas separadas;
  
 
 ---
