@@ -299,7 +299,7 @@ class Produtos extends Component {
           <Filtro>
             <label> Valor mínimo</label>
             <input
-              placeholder="Filtrar Por Valor Mínimo"
+              placeholder="Insira o valor mínimo"
               value={this.state.inputValorMinimo}
               onChange={this.onChangeInputValorMinimo}
               type="number"
@@ -309,7 +309,7 @@ class Produtos extends Component {
           <Filtro>
             <label>Valor máximo</label>
             <input
-              placeholder="Filtrar Por Valor Máximo"
+              placeholder="Insira o valor máximo"
               value={this.state.inputValorMaximo}
               onChange={this.onChangeInputValorMaximo}
               type="number"
@@ -318,7 +318,7 @@ class Produtos extends Component {
           <Filtro>
             <label>Bucar por nome</label>
             <input
-              placeholder="Filtrar Por Nome"
+              placeholder="Insira o nome do produto"
               value={this.state.inputPesquisar}
               onChange={this.onChangeInputPesquisar}
             />
