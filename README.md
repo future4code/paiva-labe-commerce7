@@ -17,7 +17,8 @@ Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segun
 
 ## ⚙️ Funcionalidades
 
-  - [x] Adiconar produtos no carrinho;
+  - [x] Adicionar produtos no carrinho;
+  - [x] Exibir alerta, notificando que o produto foi adicionado; 
   - [x] Filtrar produtos por nome, valor mínimo e valor máximo;
   - [x] Ordenar lista de produtos por valor (crescente/decrescente);
   - [x] Lista de produtos e carrinho em páginas separadas;
