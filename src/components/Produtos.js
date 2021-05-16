@@ -1,22 +1,14 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import FiltroPesquisa from "./Filtros.Pesquisa";
-import FiltroValor from "./FiltrosValor";
 import Produto from "./Produto";
 import carrinhoIcon from "../img/carrinho.svg";
 
-<<<<<<< HEAD
-
-const Main = styled.main`
-  display: flexbox;
-=======
 const Header = styled.header`
-  width: 100%;
+  width: calc(100% - 32px);
   margin: 0 auto;
   max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 9fr 1fr;
->>>>>>> master
   padding: 16px;
   justify-items: center;
   align-items: center;
@@ -50,12 +42,42 @@ const IconImage = styled.img`
   width: 100%;
 `;
 
+const SubTitulo = styled.h2`
+  grid-column: 1 / span 4;
+  margin:0;
+  @media screen and (max-width: 660px) {
+    grid-column: 1 / span 1;
+  }
+`;
+
+const FiltroProdutos = styled.section`
+  width: calc(100% - 64px);
+  max-width: 1200px;
+  border: solid black 1px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
+  margin: 0 auto;
+  padding: 16px;
+  @media screen and (max-width: 660px) {
+    width: fit-content;
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Filtro = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+
+  input {
+    text-align: center;
+  }
+`;
+
 const Main = styled.main`
   display: grid;
-  gap: 8px;
-  justify-content: space-between;
-  width: 100vh;
-  align-items: flex;
 `;
 
 const ProdutosContainer = styled.section`
@@ -82,93 +104,79 @@ const ProdutosSection = styled.section`
   padding: 16px;
 `;
 
-const FiltroProduto = styled.div`
-display: flex;
-flex-direction: column;
-margin: solid black, 1px;
-//background-color: gray;
-align-items: end;
-border: solid black 0.5px;
-height: 100vh;
-
-`;
-
 class Produtos extends Component {
   state = {
     produtos: [
       {
-        id: 1,
-        nome: "Balançando No Espaço",
-        valor: 60.0,
+        id:     1,
+        nome:   "Balançando No Espaço",
+        valor:  60.0,
         imagem: "./img/balanço.jpeg"
       },
       {
-        id: 2,
-        nome: "Balão De Lua",
-        valor: 75.0,
+        id:     2,
+        nome:   "Balão De Lua",
+        valor:  75.0,
         imagem: "./img/balão.jpeg"
       },
       {
-        id: 3,
-        nome: "Fim Do Sistema Solar",
-        valor: 70.0,
+        id:     3,
+        nome:   "Fim Do Sistema Solar",
+        valor:  70.0,
         imagem: "./img/destruição.jpg"
       },
       {
-        id: 4,
-        nome: "Dinossauro Explorador",
-        valor: 65.0,
+        id:     4,
+        nome:   "Dinossauro Explorador",
+        valor:  65.0,
         imagem: "./img/dinossauro.jpeg"
       },
       {
-        id: 5,
-        nome: "Espaço Na Garrafinha",
-        valor: 90.0,
+        id:     5,
+        nome:   "Espaço Na Garrafinha",
+        valor:  90.0,
         imagem: "./img/garrafa.jpeg"
       },
       {
-        id: 6,
-        nome: "Gato Explorador",
-        valor: 85.0,
+        id:     6,
+        nome:   "Gato Explorador",
+        valor:  85.0,
         imagem: "./img/gatoexplorado.jpg"
       },
       {
-        id: 7,
-        nome: "Astrounata Gigante",
-        valor: 80.0,
+        id:     7,
+        nome:   "Astrounata Gigante",
+        valor:  80.0,
         imagem: "./img/gigante.jpg"
       },
       {
-        id: 8,
-        nome: "Astrounata Criança",
-        valor: 95.0,
+        id:     8,
+        nome:   "Astrounata Criança",
+        valor:  95.0,
         imagem: "./img/infantil.jpg"
       },
       {
-        id: 9,
-        nome: "Objetos no Espaço",
-        valor: 75.0,
+        id:     9,
+        nome:   "Objetos no Espaço",
+        valor:  75.0,
         imagem: "./img/objetos.jpeg"
       },
       {
-        id: 10,
-        nome: "Space Invaders",
-        valor: 95.0,
+        id:     10,
+        nome:   "Space Invaders",
+        valor:  95.0,
         imagem: "./img/spaceInvasior.jpeg"
       }
 
     ],
-    carrinho: [],
-    crescente: true,
-    total: 0,
-
-    inputValorMinmo: "",
+    carrinho:         [],
+    crescente:        true,
+    total:            0,
+    inputValorMinimo: "",
     inputValorMaximo: "",
-    inputPesquisar: ""
+    inputPesquisar:   ""
 
   };
-
-
 
   componentDidMount() {
     const carrinhoLocal = JSON.parse(localStorage.getItem("carrinho"));
@@ -176,7 +184,7 @@ class Produtos extends Component {
 
     this.setState({
       carrinho: carrinhoLocal || [],
-      total: totalLocal || 0
+      total:    totalLocal || 0
     });
   }
 
@@ -189,16 +197,18 @@ class Produtos extends Component {
   }
 
   onChangeInputValorMinimo = (event) => {
-    const ValorMinmo = event.target.value
-    this.setState({ inputValorMinmo: ValorMinmo })
+    const ValorMinimo = event.target.value;
+    this.setState({ inputValorMinimo: ValorMinimo });
   }
+
   onChangeInputValorMaximo = (event) => {
-    const ValorMaximo = event.target.value
-    this.setState({ inputValorMaximo: ValorMaximo })
+    const ValorMaximo = event.target.value;
+    this.setState({ inputValorMaximo: ValorMaximo });
   }
+
   onChangeInputPesquisar = (event) => {
-    const Pesquisar = event.target.value
-    this.setState({ inputPesquisar: Pesquisar })
+    const Pesquisar = event.target.value;
+    this.setState({ inputPesquisar: Pesquisar });
   }
 
   adicionarNoCarrinho = (produto) => {
@@ -222,42 +232,38 @@ class Produtos extends Component {
     });
   };
 
+  filtro = (produto) => {
+    const { valor, nome } = produto;
+
+    let minimo = Number(this.state.inputValorMinimo);
+    let maximo = Number(this.state.inputValorMaximo);
+    const buscar = new RegExp(this.state.inputPesquisar, "i");
+
+    if (!minimo || minimo < 0)
+      minimo = -Infinity;
+
+    if (!maximo || minimo > maximo || maximo <= 0)
+      maximo = Infinity;
+
+    return valor >= minimo && valor <= maximo && nome.match(buscar);
+  }
+
+  ordenar = (produtoA, produtoB) => {
+    if (this.state.crescente)
+      return produtoA.valor - produtoB.valor;
+
+    return produtoB.valor - produtoA.valor;
+  }
+
   selecionarOrdenação = (event) => {
     this.setState({ crescente: event.target.value === "CRESCENTE" });
   };
 
   render() {
-    const produtos = this.state.produtos.sort((produtoA, produtoB) => {
-      if (this.state.crescente)
-        return produtoA.valor - produtoB.valor;
-
-      return produtoB.valor - produtoA.valor;
-    });
+    const produtos = this.state.produtos.filter(this.filtro).sort(this.ordenar);
 
     return (
       <Main>
-<<<<<<< HEAD
-
-        <FiltroProduto>
-
-          <h2>Filtros</h2>
-
-          <p> Valor mínimo</p>
-          <input  placeholder={'Filtrar por valor minimo'} value={this.state.inputValorMinmo} onChange={this.onChangeInputValorMinimo} ></input>
-
-          <p>Valor máximo</p>
-          <input  placeholder={'Filtrar por valor maximo'} value={this.state.inputValorMaximo} onChange={this.onChangeInputValorMaximo} ></input>
-
-          <p>Bucar por nome</p>
-          <input  placeholder={'Filtrar por produto'} value={this.state.inputPesquisar} onChange={this.onChangeInputPesquisar} ></input>
-
-        </FiltroProduto>
-
-       {/*  <FiltroValor lista={valor} min={""} max={""} />
-        <FiltroPesquisa lista={pesquisa} nome={""} /> */}
-        
-        <button onClick={this.props.irParaCarrinho}>Ir Para O Carrinho</button>
-=======
         <Header>
           <Titulo>Bem Vindo A Sua Loja Espacial</Titulo>
           <IrParaCarrinho>
@@ -268,12 +274,40 @@ class Produtos extends Component {
             />
           </IrParaCarrinho>
         </Header>
-        <div />
->>>>>>> master
-
+        <FiltroProdutos>
+          <SubTitulo>Filtros</SubTitulo>
+          <Filtro>
+            <label> Valor mínimo</label>
+            <input
+              placeholder="Filtrar Por Valor Mínimo"
+              value={this.state.inputValorMinimo}
+              onChange={this.onChangeInputValorMinimo}
+              type="number"
+              min="0"
+            />
+          </Filtro>
+          <Filtro>
+            <label>Valor máximo</label>
+            <input
+              placeholder="Filtrar Por Valor Máximo"
+              value={this.state.inputValorMaximo}
+              onChange={this.onChangeInputValorMaximo}
+              type="number"
+            />
+          </Filtro>
+          <Filtro>
+            <label>Bucar por nome</label>
+            <input
+              placeholder="Filtrar Por Nome"
+              value={this.state.inputPesquisar}
+              onChange={this.onChangeInputPesquisar}
+            />
+          </Filtro>
+        </FiltroProdutos>
         <ProdutosContainer>
           <ProdutosInformacoes>
             <p>{`Quantidade De Produtos: ${produtos.length}`}</p>
+
             <label htmlFor="ordenação">
               Preço:
               {" "}
