@@ -29,7 +29,7 @@ Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segun
 
 ## 🎨 Layout
 
-### Mobile (inserir print)
+### Mobile
 
 <p align="center">
   
@@ -40,7 +40,9 @@ Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segun
 ### Web
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
- 
+ <a href="https://ibb.co/x614k2H"><img src="https://i.ibb.co/nj7WGwC/Captura-de-Tela-53.png" alt="Captura-de-Tela-53" border="0" /></a>
+     <br/>
+ <a href="https://ibb.co/9pzSb5T"><img src="https://i.ibb.co/rQTNxr6/Captura-de-Tela-55.png" alt="Captura-de-Tela-55" border="0"></a>    
 </p>
 
 ---
