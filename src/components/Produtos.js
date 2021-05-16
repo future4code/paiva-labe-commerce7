@@ -1,10 +1,49 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Produto from "./Produto";
+import carrinhoIcon from "../img/carrinho.svg";
+
+const Header = styled.header`
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 9fr 1fr;
+  padding: 16px;
+  justify-items: center;
+  align-items: center;
+  @media screen and (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Titulo = styled.h1`
+  grid-column: 2 / span 1;
+  @media screen and (max-width: 760px) {
+    grid-column: 1 / span 1;
+  }
+`;
+
+const IrParaCarrinho = styled.div`
+  width: 40%;
+  min-width: 40px;
+  max-width: 60px;
+  cursor: pointer;
+  transition: transform 200ms;
+  &:hover {
+    opacity: 75%;
+  }
+  &:active {
+    transform: translateY(4px);
+  }
+`;
+
+const IconImage = styled.img`
+  width: 100%;
+`;
 
 const Main = styled.main`
   display: grid;
-  padding: 16px;
   gap: 8px;
 `;
 
@@ -14,10 +53,13 @@ const ProdutosContainer = styled.section`
 `;
 
 const ProdutosInformacoes = styled.article`
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  @media screen and (max-width: 740px) {
+  @media screen and (max-width: 500px) {
     flex-direction: column;
   }
 `;
@@ -151,13 +193,23 @@ class Produtos extends Component {
 
     return (
       <Main>
+        <Header>
+          <Titulo>Bem Vindo A Sua Loja Espacial</Titulo>
+          <IrParaCarrinho>
+            <IconImage
+              alt="Carrinho"
+              src={carrinhoIcon}
+              onClick={this.props.irParaCarrinho}
+            />
+          </IrParaCarrinho>
+        </Header>
         <div />
-        <button onClick={this.props.irParaCarrinho}>Ir para o carrinho</button>
+
         <ProdutosContainer>
           <ProdutosInformacoes>
             <p>{`Quantidade De Produtos: ${produtos.length}`}</p>
             <label htmlFor="ordenação">
-              Ordenação:
+              Preço:
               {" "}
               <select
                 name="ordenação"
