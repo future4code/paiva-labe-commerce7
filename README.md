@@ -13,7 +13,7 @@
 Foi desenvolvido durante 3 dias pelos alunos Laura, Thiago e Vinícius, do segundo módulo de front end da turma Paiva.
 <br>
 
-<b>SITE DO PROJETO:</b> <a href:"ecommerceastrodev.surge.sh" target="_blank">ecommerceastrodev.surge.sh</a>
+<b>SITE DO PROJETO:</b> ecommerceastrodev.surge.sh
 
 
 
