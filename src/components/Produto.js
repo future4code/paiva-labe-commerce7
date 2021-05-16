@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const ProdutoArticle = styled.article`
   border: 1px solid #000000;
   display: flex;
@@ -36,7 +35,6 @@ function Produto(props) {
   const { imagem, nome, valor } = props.produto;
 
   return (
-    
     <ProdutoArticle >
       <ImagemProduto src={imagem} />
       <Titulo >{ nome }</Titulo >
