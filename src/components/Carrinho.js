@@ -7,6 +7,10 @@ const Main = styled.main`
   padding: 8px;
 `;
 
+
+
+
+
 class Carrinho extends Component {
   state = {
     carrinho: [],
@@ -57,7 +61,7 @@ class Carrinho extends Component {
   render() {
     return (
       <Main>
-        <button onClick={this.props.irParaProdutos}>Ir Para Os Produtos</button>
+        <button onClick={this.props.irParaProdutos}>Voltar para os produtos</button>
         <h3>Carrinho:</h3>
         <ProdutoContainerCarrinho
           carrinho={this.state.carrinho}

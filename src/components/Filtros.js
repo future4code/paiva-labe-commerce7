@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import './App.css';
+import react from 'react';
+import styled from 'styled-components';
+
+const ContainerDeFiltros = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+`;
+
+const InputContainer = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8px;
+`;
 
 
-const pessoas = [
-  {
-
-  },
-
-]
-
-
-const numeros = []
-
-class App extends Component {
+class Filtros extends React.Component {
   state = {
 
   inputValorMinmo: "",
@@ -39,7 +41,7 @@ onChangeInputPesquisar =(event) => {
   render() {
 
     return (
-      <div>
+      <ContainerDeFiltros>
 
         <h2>Filtros</h2>
 
@@ -52,7 +54,7 @@ onChangeInputPesquisar =(event) => {
         <p lista={pessoas} nome={''}  >Bucar por nome</p>
         <input placeholder={'Filtrar por produto'} value= {this.state.inputPesquisar} onChange={this.onChangeInputPesquisar} ></input>
 
-      </div>
+      </ContainerDeFiltros>
     );
   }
 

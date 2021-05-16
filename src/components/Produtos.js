@@ -204,6 +204,7 @@ class Produtos extends Component {
           </IrParaCarrinho>
         </Header>
         <div />
+
         <ProdutosContainer>
           <ProdutosInformacoes>
             <p>{`Quantidade De Produtos: ${produtos.length}`}</p>
