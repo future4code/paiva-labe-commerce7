@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Carrinho from "./components/Carrinho";
+import Produtos from "./components/Produtos";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { pagina: "produtos" };
+
+  irParaCarrinho = () => {
+    this.setState({ pagina: "carrinho" });
+  }
+
+  irParaProdutos = () => {
+    this.setState({ pagina: "produtos" });
+  }
+
+  render() {
+    document.title = "Loja Espacial";
+
+    const renderizaPagina = () => {
+      if (this.state.pagina === "carrinho")
+        return <Carrinho irParaProdutos={this.irParaProdutos} />;
+
+      if (this.state.pagina === "produtos")
+        return <Produtos irParaCarrinho={this.irParaCarrinho} />;
+    };
+
+    return <div className="App">{renderizaPagina()}</div>;
+  }
 }
 
 export default App;
